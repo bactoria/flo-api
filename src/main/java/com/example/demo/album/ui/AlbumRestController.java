@@ -4,7 +4,7 @@ import com.example.demo.album.domain.AlbumQueryRepository;
 import com.example.demo.album.domain.AlbumRepository;
 import com.example.demo.album.domain.Album;
 import com.example.demo.album.ui._dto.AlbumResponseDto;
-import com.example.demo.album.ui._dto.SaveAlbumRequestDto;
+import com.example.demo.album.ui._dto.AlbumSaveRequestDto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
@@ -46,7 +46,7 @@ public class AlbumRestController {
     }
 
     @PostMapping
-    public ResponseEntity save(@RequestBody SaveAlbumRequestDto requestDto) {
+    public ResponseEntity save(@RequestBody AlbumSaveRequestDto requestDto) {
         log.info("POST :: /albums :: {}", requestDto);
         Album album = requestDto.toEntity();
         Album savedAlbum = albumRepository.save(album);

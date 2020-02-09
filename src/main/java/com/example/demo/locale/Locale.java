@@ -1,9 +1,10 @@
-package com.example.demo.album.domain;
+package com.example.demo.locale;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonValue;
 
+import javax.persistence.Embeddable;
 import java.util.Arrays;
 
 /**
@@ -12,17 +13,14 @@ import java.util.Arrays;
  */
 
 // TODO :: 아.. album 저장할 때 사용하는 request에서 locale을 0으로 해도 KR로 받을 수 있음.. 못받게 수정 필요.
-@JsonFormat(shape = JsonFormat.Shape.STRING)
 public enum Locale {
     ALL("all"), // 모든 국가에서 제공 가능한 앨범
     KO("ko"),
     EN("en"),
     JA("ja");
 
-    @JsonValue
     private final String value;
 
-    @JsonCreator
     private Locale(String value) {
         this.value = value;
     }

@@ -1,7 +1,6 @@
 package com.example.demo.album.ui._dto;
 
 import com.example.demo.album.domain.Album;
-import com.example.demo.locale.Locale;
 import com.example.demo.song.domain.Song;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -16,12 +15,12 @@ import java.util.stream.Collectors;
  */
 
 @NoArgsConstructor @Getter
-public class AlbumResponseDto {
+public class AlbumSearchResponseDto {
 
     private String title;
     private List<SongResponseDto> song = new ArrayList<>();
 
-    public AlbumResponseDto(Album album) {
+    public AlbumSearchResponseDto(Album album) {
         this.title = album.getTitle();
         this.song = album.getSongs().stream().map(SongResponseDto::new).collect(Collectors.toList());
     }

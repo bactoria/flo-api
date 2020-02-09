@@ -2,11 +2,16 @@ package com.example.demo.album.infra;
 
 import com.example.demo.album.domain.Album;
 import com.example.demo.album.domain.AlbumQueryRepository;
+import com.example.demo.album.domain.dto.AlbumSearchRequestDto;
+import com.example.demo.locale.Locale;
+import com.example.demo.album.domain.dto.AlbumSearchResponseDto;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import org.springframework.data.jpa.repository.support.QuerydslRepositorySupport;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import static com.example.demo.album.domain.QAlbum.album;
 import static com.example.demo.song.domain.QSong.song;
@@ -45,12 +50,29 @@ Hibernate: select locales0_.album_id as album_id1_1_0_, locales0_.locale as loca
 
     @Override
     public Optional<Album> findById(Long id) {
+
         Album fetchedData = queryFactory
                 .selectFrom(album)
                 .where(album.albumId.eq(id))
-                .innerJoin(album.songs, song).fetchJoin()
+                .join(album.songs, song).fetchJoin()
                 .fetchOne();
         return Optional.ofNullable(fetchedData);
+    }
+
+    @Override
+    public List<AlbumSearchResponseDto> searchAlbumsWithLocale(AlbumSearchRequestDto albumSearchRequestDto) {
+        final String SEARCH_DATA = albumSearchRequestDto.getSearchData();
+        final Locale USER_LOCALE = albumSearchRequestDto.getUserLocale();
+
+        List<Album> fetchedData = queryFactory
+                .selectFrom(album)
+                .join(album.songs, song).fetchJoin()
+                .where(album.title.contains(SEARCH_DATA))
+                .fetch();
+
+        return fetchedData.stream()
+                .map(AlbumSearchResponseDto::new)
+                .collect(Collectors.toList());
     }
 
 }

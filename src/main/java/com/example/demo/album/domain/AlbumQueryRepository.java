@@ -1,5 +1,10 @@
 package com.example.demo.album.domain;
 
+import com.example.demo.album.domain.dto.AlbumSearchRequestDto;
+import com.example.demo.locale.Locale;
+import com.example.demo.album.domain.dto.AlbumSearchResponseDto;
+
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -9,4 +14,5 @@ import java.util.Optional;
 
 public interface AlbumQueryRepository {
     Optional<Album> findById(Long id);
+    List<AlbumSearchResponseDto> searchAlbumsWithLocale(AlbumSearchRequestDto albumSearchRequestDto);
 }

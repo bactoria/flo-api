@@ -2,9 +2,9 @@ Insert into Album (title) values ('제모옥');
 Insert into Album (title) values ('제모옥2');
 
 
-Insert into locales (album_id, locale) values(1, 'KR');
-Insert into locales (album_id, locale) values(1, 'EN');
-Insert into locales (album_id, locale) values(2, 'EN');
+Insert into albumlocale (album_id, locale) values(1, 'KR');
+Insert into albumlocale (album_id, locale) values(1, 'EN');
+Insert into albumlocale (album_id, locale) values(2, 'EN');
 
 
 

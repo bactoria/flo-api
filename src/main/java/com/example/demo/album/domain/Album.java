@@ -1,5 +1,7 @@
 package com.example.demo.album.domain;
 
+import com.example.demo.locale.AlbumLocale;
+import com.example.demo.locale.Locale;
 import com.example.demo.song.domain.Song;
 import lombok.*;
 
@@ -16,6 +18,7 @@ import java.util.List;
 @Getter
 @Builder @AllArgsConstructor
 @NoArgsConstructor
+@ToString(exclude = "songs")
 @EqualsAndHashCode(of = "albumId")
 public class Album {
 
@@ -26,11 +29,8 @@ public class Album {
     @Column(unique = true)
     private String title;
 
-    @ElementCollection(targetClass = Locale.class)
-    @CollectionTable(name = "locales", joinColumns = @JoinColumn(name = "albumId"))
-    @Column(name = "locale")
-    @Enumerated(EnumType.STRING)
-    private List<Locale> locales = new ArrayList<>();
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "album")
+    private List<AlbumLocale> locales = new ArrayList<>();
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "albumId")
     private List<Song> songs = new ArrayList<>();
