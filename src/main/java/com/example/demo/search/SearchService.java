@@ -19,8 +19,8 @@ import java.util.List;
  * @since 2020-02-09 [2020.2월.09]
  */
 
-@Service
 @RequiredArgsConstructor
+@Service
 public class SearchService {
 
     private final AlbumSearchService albumSearchService;

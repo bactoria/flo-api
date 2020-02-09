@@ -11,14 +11,14 @@ import java.io.Serializable;
  * @since 2020-02-09 [2020.2월.09]
  */
 
-@Table(name = "ALBUMLOCALE")
-@Entity
 @Getter
 @Setter
-@NoArgsConstructor
 @Builder
+@NoArgsConstructor
 @AllArgsConstructor
+@Entity
 @IdClass(AlbumLocaleId.class)
+@Table(name = "ALBUMLOCALE")
 public class AlbumLocale implements Serializable {
 
     @Id

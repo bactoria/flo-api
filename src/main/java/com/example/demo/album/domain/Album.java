@@ -14,12 +14,13 @@ import java.util.List;
  * @since 2020-02-08 [2020.2월.08]
  */
 
-@Entity
-@Getter
-@Builder @AllArgsConstructor
-@NoArgsConstructor
 @ToString(exclude = "songs")
 @EqualsAndHashCode(of = "albumId")
+@Getter
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+@Entity
 public class Album {
 
     @Id

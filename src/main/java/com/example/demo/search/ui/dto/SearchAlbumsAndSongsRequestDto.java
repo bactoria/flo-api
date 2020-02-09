@@ -12,8 +12,8 @@ import lombok.ToString;
 
 @Setter
 @Getter
-@NoArgsConstructor
 @ToString
+@NoArgsConstructor
 public class SearchAlbumsAndSongsRequestDto {
     private String title;
     private String locale;

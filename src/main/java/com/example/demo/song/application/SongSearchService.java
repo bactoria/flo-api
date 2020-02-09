@@ -15,8 +15,8 @@ import java.util.stream.Collectors;
  * @since 2020-02-09 [2020.2월.09]
  */
 
-@Service
 @RequiredArgsConstructor
+@Service
 public class SongSearchService {
 
     private final SongQueryRepository songQueryRepository;

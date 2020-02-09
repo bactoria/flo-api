@@ -10,7 +10,10 @@ import lombok.ToString;
  * @author Bactoria
  * @since 2020-02-09 [2020.2월.09]
  */
-@Getter @NoArgsConstructor @AllArgsConstructor @ToString
+@ToString
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
 public class SongSearchResponseDto {
     private String title;
     private Long songId;

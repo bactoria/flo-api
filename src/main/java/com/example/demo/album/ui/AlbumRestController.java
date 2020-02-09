@@ -22,8 +22,8 @@ import static org.springframework.hateoas.mvc.ControllerLinkBuilder.linkTo;
  */
 
 @Slf4j
-@RestController
 @RequiredArgsConstructor
+@RestController
 @RequestMapping("/albums")
 public class AlbumRestController {
 

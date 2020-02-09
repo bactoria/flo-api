@@ -10,13 +10,13 @@ import javax.persistence.*;
  * @since 2020-02-08 [2020.2월.08]
  */
 
-/*TODO :: INTEGER vs LONG*/
-@Entity
-@Getter
-@Builder @AllArgsConstructor
-@NoArgsConstructor
 @ToString
 @EqualsAndHashCode(of = "songId")
+@Getter
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+@Entity
 public class Song {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

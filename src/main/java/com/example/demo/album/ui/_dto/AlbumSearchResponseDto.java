@@ -14,7 +14,8 @@ import java.util.stream.Collectors;
  * @since 2020-02-09 [2020.2월.09]
  */
 
-@NoArgsConstructor @Getter
+@Getter
+@NoArgsConstructor
 public class AlbumSearchResponseDto {
 
     private String title;

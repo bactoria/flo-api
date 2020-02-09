@@ -14,9 +14,9 @@ import org.springframework.web.bind.annotation.*;
  */
 
 @Slf4j
-@RestController
 @RequiredArgsConstructor
 @RequestMapping("/search")
+@RestController
 public class SearchRestController {
 
     private final SearchService searchService;
