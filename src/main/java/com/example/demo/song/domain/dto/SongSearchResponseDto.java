@@ -24,7 +24,7 @@ public class SongSearchResponseDto {
         this.title = song.getTitle();
         this.track = song.getTrack();
         this.length = song.getLength();
-        this.songId = song.getLength();
+        this.songId = song.getSongId();
     }
 
 }
