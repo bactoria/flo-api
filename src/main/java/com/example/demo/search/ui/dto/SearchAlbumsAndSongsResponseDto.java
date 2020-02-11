@@ -15,7 +15,6 @@ import java.util.List;
 @Getter
 @AllArgsConstructor
 public class SearchAlbumsAndSongsResponseDto {
-
     private List<AlbumSearchResponseDto> albums;
     private List<SongSearchResponseDto> songs;
 }

@@ -19,12 +19,12 @@ import java.util.stream.Collectors;
 @AllArgsConstructor
 public class AlbumSearchResponseDto {
     private String title;
-    private Long songId;
+    private Long id;
     private List<SongSearchResponseDto> songs;
 
     public AlbumSearchResponseDto(Album album) {
         this.title = album.getTitle();
-        this.songId = album.getAlbumId();
+        this.id= album.getAlbumId();
         this.songs = album.getSongs().stream()
                 .map(SongSearchResponseDto::new)
                 .collect(Collectors.toList());

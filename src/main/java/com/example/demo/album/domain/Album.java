@@ -4,10 +4,16 @@ import com.example.demo.locale.AlbumLocale;
 import com.example.demo.locale.Locale;
 import com.example.demo.song.domain.Song;
 import lombok.*;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * @author Bactoria
@@ -31,8 +37,9 @@ public class Album {
     private String title;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "album")
-    private List<AlbumLocale> locales = new ArrayList<>();
+    @Fetch(FetchMode.SELECT)
+    private Set<AlbumLocale> locales = new HashSet<>();
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "albumId")
-    private List<Song> songs = new ArrayList<>();
+    private Set<Song> songs = new HashSet<>();
 }

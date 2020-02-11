@@ -16,7 +16,7 @@ import lombok.ToString;
 @AllArgsConstructor
 public class SongSearchResponseDto {
     private String title;
-    private Long songId;
+    private Long id;
     private Long length;
     private Long track;
 
@@ -24,7 +24,7 @@ public class SongSearchResponseDto {
         this.title = song.getTitle();
         this.track = song.getTrack();
         this.length = song.getLength();
-        this.songId = song.getSongId();
+        this.id = song.getSongId();
     }
 
 }

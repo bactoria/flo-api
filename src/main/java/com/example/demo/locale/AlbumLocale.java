@@ -11,6 +11,7 @@ import java.io.Serializable;
  * @since 2020-02-09 [2020.2월.09]
  */
 
+@ToString(of = "locale")
 @Getter
 @Setter
 @Builder

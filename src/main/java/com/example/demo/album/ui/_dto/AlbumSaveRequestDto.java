@@ -26,7 +26,7 @@ public class AlbumSaveRequestDto {
     public Album toEntity() {
         return Album.builder()
                 .title(title)
-                .locales(locales.stream().map(locale->AlbumLocale.builder().locale(locale).build()).collect(Collectors.toList()))
+                .locales(locales.stream().map(locale->AlbumLocale.builder().locale(locale).build()).collect(Collectors.toSet()))
                 .build();
     }
 
